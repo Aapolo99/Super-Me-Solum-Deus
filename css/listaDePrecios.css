@@ -1,0 +1,216 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'DM Mono', monospace;
+    background: #F8F8FF;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), url(../img/fondoPaginaPrincipal.jpg),
+    radial-gradient(at top center, rgba(255,255,255,0.5) 0%, rgba(0,0,0,0.5) 100%) #989898 ;
+}
+
+.contenedor{
+    width: 90%;
+    max-width: 1200px;
+    overflow: hidden;
+    margin: auto;
+    padding: 60px 0;
+}
+
+.head{
+    text-align: center;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    flex-direction: column;
+}
+
+.subtitulo{
+    text-align: center;
+    font-family: 'Dosis', sans-serif;
+    font-weight: 300;
+    margin-bottom: 40px;
+    font-size: 40px;
+    color: rgb(255, 255, 255);
+}
+
+/* Cambiar color predeterminado de bootstrap, se coloca !important sino toma el cambio*/
+.barraNav{
+    background-color: #C0C0C0 !important;
+}
+
+.table-title{
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    margin-bottom: 40px;
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    padding-top: 11px;
+}
+
+.table{
+    max-width: 100%;
+}
+
+th{
+    color: #d5dde5;
+    background-color: #1b1e24;
+}
+
+tr{
+    color: #666b85;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+tr:hover td{
+    background-color: #4e5066;
+    color: #fff;
+    border-top: 1px solid #22262e;
+}
+
+footer{
+    background: #509bc3;
+    padding-bottom: 0.1px;
+}
+.footer-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-top: 60px;
+    padding-bottom: 40px;
+}
+.contact-us{
+    width: 40%;
+    color: black;
+}
+.brand{
+    font-weight: 700;
+    font-size: 30px;
+}
+.brand+p{
+    font-weight: 500;
+    font-size: 15px;
+}
+.social-media{
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+}
+.social-media-icon{
+    display: inline-block;
+    margin-left: 20px;
+    width: 60px;
+    height: 60px;
+    border: 1px solid black;
+    border-radius: 50%;
+    text-align: center;
+    color: black;
+}
+.social-media-icon:hover{
+    background: #585858;
+    color: black;
+}
+.social-media-icon i{
+    font-size: 30px;
+    line-height: 60px;
+
+}
+.line{
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 2px;
+    background: black;
+    margin-bottom: 60px;
+}
+
+
+@media screen and (max-width:800px){
+    .nav_menu{
+        width: 50vw;
+    }
+    .titulo{
+        font-size: 40px;
+    }
+    .contenedor-servicio img{
+        width: 30%;
+        margin-bottom: 40px;
+    }
+    .checklist-servicio{
+        width: 80%;
+    }
+    .servicie{
+        margin-bottom: 30px;
+    }
+    .agregar-imagen{
+        width: 80%;
+    }
+    .img-galeria{
+        width: 45%;
+    }
+    .con-expert{
+        width: 80%;
+    }
+    .social-media{
+        width: 80%;
+        justify-content: space-evenly;
+    }
+    .social-media i{
+        margin-left: 0;
+    }
+    .footer-content{
+        justify-content: center;
+    }
+    .contact-us{
+        text-align: center;
+        width: 80%;
+        margin-bottom: 40px;
+    }
+    .social-media-icon{
+        margin-left: 0;
+    }
+}
+@media screen and (max-width:500px) {
+    .nav_menu{
+        width: 65vw;
+    }
+    .agregar-imagen{
+        width: 95%;
+    }
+    .menu{
+        top: 20px;
+        right: 20px;
+    }
+    .titulo{
+        font-size: 30px;
+    }
+    .subtitulo{
+        font-size: 30px;
+    }
+    .img-galeria{
+        width: 95%;
+    }
+    .social-media{
+        width: 100%;
+    }
+    .contact-us{
+        width: 90%;
+        
+    }
+}
+
+@media screen and (max-width:831px){
+    .table-hover{
+        width: 100%;
+    }
+    .barraNav{
+        width: 95vw;
+    }
+}
