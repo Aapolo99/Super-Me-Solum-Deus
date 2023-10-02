@@ -10,6 +10,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
 <body class="bg-dark d-flex justify-content-center align-items-center vh-100 text-sm-center text-md-center text-lg-center">
+  <form action="validar.php" method="post">
   <div class="bg-white p-5 rounded-5 text-secondary shadow" style="width: 25rem">
     <div class="d-flex justify-content-center">
       <img src="./img/login-icon.svg" alt="login-icon" style="height: 7rem" />
@@ -19,13 +20,13 @@
       <div class="input-group-text bg-info">
         <img src="./img/username-icon.svg" alt="username-icon" style="height: 1rem" />
       </div>
-      <input class="form-control bg-light" type="text" placeholder="Username" />
+      <input class="form-control bg-light" type="text" placeholder="Username" name="usuario"/>
     </div>
     <div class="input-group mt-1">
       <div class="input-group-text bg-info">
         <img src="./img/password-icon.svg" alt="password-icon" style="height: 1rem" />
       </div>
-      <input class="form-control bg-light" type="password" placeholder="Password" />
+      <input class="form-control bg-light" type="password" placeholder="Password" name="contraseña" />
     </div>
     <div class="d-flex justify-content-around mt-1">
       <div class="d-flex align-items-center gap-1">
@@ -39,10 +40,11 @@
     </div>
     <div class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm">
       Login
+    </form>
     </div>
     <div class="d-flex gap-1 justify-content-center mt-1">
       <div>Don't have an account?</div>
-      <a href="./paginaPrincipal.html" class="text-decoration-none text-info fw-semibold">Register</a>
+      <a href="formreg.php"text-decoration-none text-info fw-semibold">Register</a>
     </div>
     <div class="p-3">
       <div class="border-bottom text-center" style="height: 0.9rem">
