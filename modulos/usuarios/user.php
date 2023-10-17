@@ -1,21 +1,30 @@
 <?php 
 
-include("../../conexion.php");
+include("conexion.php");
 
 
-$stm=$conex->prepare("SELECT * FROM usuarios");
+
+/*$stm=$conex->prepare("SELECT * FROM usuarios");*/
+$stm=$conex->prepare("SELECT U.id_usuario, U.Nombre, U.Apellido, U.Direccion, U.Contacto, U.Email, U.Contrasena, R.rol FROM usuarios AS U
+    LEFT JOIN roles AS R ON U.ID_Rol = R.ID");
 $stm->execute();
 $usuarios=$stm->fetchAll(PDO::FETCH_ASSOC);
 
-
+/* Eliminar Registro  */
 if(isset($_GET['id_usuario'])){
 
     $txtid=(isset($_GET['id_usuario'])?$_GET['id_usuario']:"");
     $stm=$conex->prepare("DELETE FROM usuarios WHERE id_usuario=:txtid");
     $stm->bindParam(":txtid",$txtid);
     $stm->execute();
-    header("location:user.php");
 
+    echo'<script type="text/javascript">
+    alert("Usuario Eliminado Exitosamente");
+    window.location.href="user.php";
+    </script>';
+    /*
+    header("location:user.php");
+    */
 }
 
 ?>
@@ -37,13 +46,13 @@ Agregar
                 <th scope="col">Contacto</th>
                 <th scope="col">Email</th>
                 <th scope="col">Contraseña</th>
+                <th scope="col">Rol</th>
                 <th>Acciones</th>
-
             </tr>
         </thead>
         <tbody>
             <?php foreach ($usuarios as $usuario) { ?>
-            <tr class="">   
+            <tr class="">
                 <td scope="row"><?php echo $usuario['id_usuario']; ?></td>
                 <td><?php echo $usuario['Nombre']; ?></td>
                 <td><?php echo $usuario['Apellido']; ?></td>
@@ -51,10 +60,10 @@ Agregar
                 <td><?php echo $usuario['Contacto']; ?></td>
                 <td><?php echo $usuario['Email']; ?></td>
                 <td><?php echo $usuario['Contrasena']; ?></td>
+                <td><?php echo $usuario['rol']; ?></td>
                 <td>
                 <a href="edit.php?id_usuario=<?php echo $usuario['id_usuario'];?>" class="btn btn-success">Editar</a>
                 <a href="user.php?id_usuario=<?php echo $usuario['id_usuario'];?>" class="btn btn-danger">Eliminar</a>
-               
                 </td>
 
             </tr>
@@ -63,8 +72,4 @@ Agregar
     </table>
 </div>
 <?php include("create.php"); ?>
-
-
-
 <?php include("../../template/footerUser.php")?>
-

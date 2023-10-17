@@ -1,5 +1,3 @@
-<?php  $url_base="../../conexion.php"; ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +16,7 @@
     <header class="header" id="inicio">
         <nav class="navbar navbar-expand-lg bg-body-tertiary barraNav">
             <div class="container-fluid">
-              <a class="navbar-brand" href="./index1.php">Login</a>
+              <a class="navbar-brand" href="./index.html">Login</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -33,15 +31,12 @@
                   <li class="nav-item">
                     <a class="nav-link" href="includes/logout.php">Cerrar Sesion</a>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="./modulos/usuarios/user.php">Admin</a>
-                </li>
                 </ul>
               </div>
             </div>
           </nav>
         <div class="contenedor head">
-            <h1 class="titulo">Bienvenidos A El Restaurant Donde La Comida Es De Ensueño</h1>
+            <h1 class="titulo"><?php echo $user->getNombre(); ?> Bienvenido A El Restaurant Donde La Comida Es De Ensueño</h1>
         </div>
     </header>
     <main>
@@ -103,5 +98,22 @@
             </div>   
         </div>        
     </main>
+    <footer id="contacto">
+        <div class="contenedor footer-content">
+            <div class="contact-us">
+                <h2 class="brand">Super Me Solum Deus</h2>
+                <p>Somos Expertos En Llevarte A Otro Mundo Con Nuestra Comida</p>
+            </div>
+            <div class="social-media">
+                <a href="./" class="social-media-icon">
+                    <i class='bx bxl-facebook-circle'></i>
+                </a>
+                <a href="./" class="social-media-icon">
+                    <i class='bx bxl-instagram-alt'></i>
+                </a>
+            </div>
+        </div>
+        <div class="line"></div>
+    </footer>
 </body>
 </html>
