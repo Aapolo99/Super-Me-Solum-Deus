@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-10-2023 a las 06:31:31
+-- Tiempo de generación: 19-10-2023 a las 04:13:09
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -59,6 +59,17 @@ CREATE TABLE `listasprecios` (
   `precio` decimal(10,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `listasprecios`
+--
+
+INSERT INTO `listasprecios` (`id`, `nombre_lista`, `plato`, `precio`) VALUES
+(1, 'Entradas', 'Sopa de langosta', '30.00'),
+(2, 'Entradas', 'Carpaccio de ternera con trufa negra', '35.00'),
+(3, 'Entradas', 'Tartar de atún con aguacate', '28.00'),
+(4, 'Entradas', 'Foie gras con reducción de vino tinto', '40.00'),
+(5, 'Entradas', 'Ostra Kumamoto al natural (plato de autor)', '7.00');
+
 -- --------------------------------------------------------
 
 --
@@ -75,29 +86,29 @@ CREATE TABLE `menu` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `mesas`
---
-
-CREATE TABLE `mesas` (
-  `id_mesa` int(11) NOT NULL,
-  `Capacidad` int(11) DEFAULT NULL,
-  `estado` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `reservas`
 --
 
 CREATE TABLE `reservas` (
   `id_reserva` int(11) NOT NULL,
   `id_usuario` int(11) DEFAULT NULL,
-  `NombreApellido` int(11) DEFAULT NULL,
+  `NombreApellido` text DEFAULT NULL,
   `id_mesa` int(11) DEFAULT NULL,
   `fecha_hora` datetime DEFAULT NULL,
+  `Personas` int(11) NOT NULL,
   `estado` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `reservas`
+--
+
+INSERT INTO `reservas` (`id_reserva`, `id_usuario`, `NombreApellido`, `id_mesa`, `fecha_hora`, `Personas`, `estado`) VALUES
+(1, 2147483647, 'Adam Cassio', 1, '2023-10-21 00:00:00', 2, NULL),
+(2, 2147483647, 'Adam Cassio', 2, '2023-10-23 00:00:00', 2, NULL),
+(3, 2147483647, 'Adam Cassio', 5, '2023-11-10 00:00:00', 5, NULL),
+(4, 2, 'Camilo Rojas', 7, '2023-10-31 00:00:00', 7, NULL),
+(5, 2, 'Camilo Rojas', 8, '2023-10-23 00:00:00', 4, NULL);
 
 -- --------------------------------------------------------
 
@@ -140,8 +151,15 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id_usuario`, `Nombre`, `Apellido`, `Direccion`, `Contacto`, `Email`, `Contrasena`, `ID_Rol`) VALUES
-(1032498422, 'Edit', 'Uno', 'X', 2147483647, 'prueba@gmail.com', '12345', 2),
-(1032498423, 'Prueba', 'Tres', 'X', 2147483647, 'prueba@gmail.com', '12345', 2);
+(2, 'Camilo', 'Rojas', 'BOGOTA', 22223, 'camilor@gmail.com', '234', 2),
+(3, 'Camilo', 'Rojas', 'Bogota', 34566, 'camilors@gmail.com', '123456', 1),
+(1005678499, 'Maria', 'Suarez', 'Calle 44', 345678, 'mariac@gmail.com', '1234', 2),
+(1032498421, 'Adam', 'Cassio', 'Calle 12', 2147483647, 'adam@gmail.com', '12345', 1),
+(1032498422, 'Edit', 'Diaz', 'Bogota', 2147483647, 'prueba@gmail.com', '12345', 2),
+(1032498423, 'Prueba', 'Tres', 'X', 2147483647, 'prueba@gmail.com', '12345', 2),
+(1234567890, 'Adam', 'Cassio', 'Calle 12', 1111, 'adam@gmail.com', '1234', 2),
+(1234789654, 'Andres', 'Diaz', 'Calle 23', 2147483647, 'andresd@gmail.com', '12345', 2),
+(2147483647, 'Cristian', 'Rodriguez', 'calle 45', 345678903, 'cristian@gmail.com', '12345', 2);
 
 --
 -- Índices para tablas volcadas
@@ -174,18 +192,10 @@ ALTER TABLE `menu`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indices de la tabla `mesas`
---
-ALTER TABLE `mesas`
-  ADD PRIMARY KEY (`id_mesa`);
-
---
 -- Indices de la tabla `reservas`
 --
 ALTER TABLE `reservas`
-  ADD PRIMARY KEY (`id_reserva`),
-  ADD KEY `id_usuario` (`id_usuario`),
-  ADD KEY `id_mesa` (`id_mesa`);
+  ADD PRIMARY KEY (`id_reserva`);
 
 --
 -- Indices de la tabla `roles`
@@ -201,6 +211,16 @@ ALTER TABLE `usuarios`
   ADD KEY `fk_ID_Rol` (`ID_Rol`);
 
 --
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `reservas`
+--
+ALTER TABLE `reservas`
+  MODIFY `id_reserva` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- Restricciones para tablas volcadas
 --
 
@@ -210,13 +230,6 @@ ALTER TABLE `usuarios`
 ALTER TABLE `detallesreserva`
   ADD CONSTRAINT `detallesreserva_ibfk_1` FOREIGN KEY (`id_reserva`) REFERENCES `reservas` (`id_reserva`),
   ADD CONSTRAINT `detallesreserva_ibfk_2` FOREIGN KEY (`id_plato`) REFERENCES `menu` (`ID`);
-
---
--- Filtros para la tabla `reservas`
---
-ALTER TABLE `reservas`
-  ADD CONSTRAINT `reservas_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`),
-  ADD CONSTRAINT `reservas_ibfk_2` FOREIGN KEY (`id_mesa`) REFERENCES `mesas` (`id_mesa`);
 
 --
 -- Filtros para la tabla `usuarios`

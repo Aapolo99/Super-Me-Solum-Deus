@@ -1,8 +1,6 @@
 <?php 
-
+include '../../config.php';
 include("conexion.php");
-
-
 
 /*$stm=$conex->prepare("SELECT * FROM usuarios");*/
 $stm=$conex->prepare("SELECT U.id_usuario, U.Nombre, U.Apellido, U.Direccion, U.Contacto, U.Email, U.Contrasena, R.rol FROM usuarios AS U

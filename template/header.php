@@ -1,5 +1,7 @@
-<?php  $url_base="../../conexion.php"; ?>
-
+<?php
+    include './config.php';
+    $url_base="../../conexion.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,31 +13,25 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200&family=Poppins:wght@100&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/paginaPrincipal.css">
+    <link rel="stylesheet" href="../css/paginaPrincipal.css">
     <title>Super Me Solum Deus</title>
 </head>
 <body>
     <header class="header" id="inicio">
         <nav class="navbar navbar-expand-lg bg-body-tertiary barraNav">
             <div class="container-fluid">
-              <a class="navbar-brand" href="./index1.php">Login</a>
+              <a class="navbar-brand" href="<?= ROOT ?>/index1.php">Login</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="./paginaPrincipal.html">Inicio</a>
+                        <a class="nav-link" href="<?= ROOT ?>/paginaPrincipal.html">Inicio</a>
                       </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="./listaDePrecios.html">Lista De Precios</a>
+                    <a class="nav-link" href="<?= ROOT ?>/listaDePrecios.html">Lista De Precios</a>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="includes/logout.php">Cerrar Sesion</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="./modulos/usuarios/user.php">Admin</a>
-                </li>
                 </ul>
               </div>
             </div>

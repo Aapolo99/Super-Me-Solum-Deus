@@ -1,5 +1,5 @@
 <?php
-    // include './config.php';
+    include './config.php';
     $url_base="../../conexion.php";
 ?>
 
@@ -21,7 +21,7 @@
 <nav class="navbar navbar-expand navbar-dark bg-dark">
     <ul class="nav navbar-nav">
         <li class="nav-item">
-            <a class="nav-link active" href="<?= ROOT ?>/vistas/home.php" aria-current="page">Super Me Solum Deus<span class="visually-hidden">(current)</span></a></li>
+            <a class="nav-link active" href="<?= ROOT ?>/vistas/home1.php" aria-current="page">Super Me Solum Deus<span class="visually-hidden">(current)</span></a></li>
             <li class="nav-item">
             <a class="nav-link active" href="<?= ROOT ?>/modulos/usuarios/user.php" aria-current="page">Usuarios<span class="visually-hidden">(current)</span></a></li>
             <li class="nav-item">

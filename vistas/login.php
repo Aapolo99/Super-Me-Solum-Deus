@@ -34,6 +34,8 @@
       <div class="input-group-text bg-info">
         <img src="./img/password-icon.svg" alt="password-icon" style="height: 1rem" />
       </div>
+      <input type="hidden" name = "ID_Rol"/>
+      <!-- value='2' -->
       <input class="form-control bg-light" type="password" placeholder="Contraseña" name="contrasena" autocomplete="off" required/>
     </div>
     <div class="d-flex justify-content-around mt-1">

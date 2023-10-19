@@ -12,5 +12,6 @@ try {
     echo $e->getMessage();
 }
 
+$URL = "http://localhost/xampp/Super-Me-Solum-Deus";
 
 ?>
